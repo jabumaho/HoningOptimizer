@@ -57,6 +57,10 @@
             this.lbl_protection = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.lbl_goldcost = new System.Windows.Forms.Label();
+            this.chk_stronghold = new System.Windows.Forms.CheckBox();
+            this.chk_book = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lbl_savings = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -284,11 +288,49 @@
             this.lbl_goldcost.TabIndex = 33;
             this.lbl_goldcost.Text = "0";
             // 
+            // chk_stronghold
+            // 
+            this.chk_stronghold.Location = new System.Drawing.Point(477, 162);
+            this.chk_stronghold.Name = "chk_stronghold";
+            this.chk_stronghold.Size = new System.Drawing.Size(108, 29);
+            this.chk_stronghold.TabIndex = 36;
+            this.chk_stronghold.Text = "Stronghold +10%";
+            this.chk_stronghold.UseVisualStyleBackColor = true;
+            // 
+            // chk_book
+            // 
+            this.chk_book.Location = new System.Drawing.Point(477, 197);
+            this.chk_book.Name = "chk_book";
+            this.chk_book.Size = new System.Drawing.Size(104, 24);
+            this.chk_book.TabIndex = 37;
+            this.chk_book.Text = "Book +10%";
+            this.chk_book.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.Location = new System.Drawing.Point(224, 247);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(97, 42);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Savings compared to no Solars:";
+            // 
+            // lbl_savings
+            // 
+            this.lbl_savings.Location = new System.Drawing.Point(331, 247);
+            this.lbl_savings.Name = "lbl_savings";
+            this.lbl_savings.Size = new System.Drawing.Size(100, 23);
+            this.lbl_savings.TabIndex = 39;
+            this.lbl_savings.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 525);
+            this.Controls.Add(this.lbl_savings);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.chk_book);
+            this.Controls.Add(this.chk_stronghold);
             this.Controls.Add(this.lbl_goldcost);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.lbl_protection);
@@ -323,6 +365,13 @@
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbl_savings;
+
+        private System.Windows.Forms.CheckBox chk_book;
+
+        private System.Windows.Forms.CheckBox chk_stronghold;
+
         private System.Windows.Forms.Label lbl_goldcost;
 
         private System.Windows.Forms.Label label17;
@@ -335,8 +384,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
 
         private System.Windows.Forms.Label label8;

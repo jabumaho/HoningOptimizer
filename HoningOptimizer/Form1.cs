@@ -64,12 +64,20 @@ namespace HoningOptimizer
                                      data.weaponcosts[lvl][2]*Convert.ToInt32(fusiongold.Text) + 120;
 
                 List<double> result = opt.optimize(base_gold_cost, lvl, Convert.ToInt32(gracegold.Text),
-                    Convert.ToInt32(blessinggold.Text), Convert.ToInt32(protgold.Text));
+                    Convert.ToInt32(blessinggold.Text), Convert.ToInt32(protgold.Text), chk_stronghold.Checked, chk_book.Checked);
+                double base_chance = data.chances[lvl];
+                if (chk_book.Checked)
+                    base_chance += 0.1;
+                if (chk_stronghold.Checked)
+                    base_chance += 0.1;
+                
+                double base_gold = Math.Ceiling(opt.getExpectedCost(base_gold_cost, base_chance, lvl));
                 lbl_grace.Text = result[0].ToString();
                 lbl_blessing.Text = result[1].ToString();
                 lbl_protection.Text = result[2].ToString();
                 lbl_goldcost.Text = Math.Ceiling(result[3]).ToString();
-                
+                double savings = base_gold - Math.Ceiling(result[3]);
+                lbl_savings.Text = savings.ToString();
                 save();
             }
             catch (Exception exception)

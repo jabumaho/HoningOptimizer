@@ -12,7 +12,7 @@ namespace HoningOptimizer
             data = _data;
         }
 
-        public List<double> optimize(double goldPerAttempt, int level, int gracegold, int blessinggold, int protgold)
+        public List<double> optimize(double goldPerAttempt, int level, int gracegold, int blessinggold, int protgold, bool stronghold, bool book)
         {
             List<double> minExpectedGold = new List<double>() {0, 0, 0, Double.MaxValue};
             
@@ -25,6 +25,12 @@ namespace HoningOptimizer
                         double newCost = goldPerAttempt + g * gracegold + b * blessinggold + p * protgold;
                         double newChance = data.chances[level] + g * data.grace[level].increase +
                                            b * data.blessing[level].increase + p * data.protection[level].increase;
+                        if (stronghold)
+                            newChance += 0.1;
+                        if (book)
+                            newChance += 0.1;
+                        if (newChance > 1)
+                            newChance = 1;
                         double exp = getExpectedCost(newCost, newChance, level);
                         if (exp < minExpectedGold[3])
                             minExpectedGold = new List<double>() { g, b, p, exp };
