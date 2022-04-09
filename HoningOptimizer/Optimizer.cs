@@ -47,15 +47,23 @@ namespace HoningOptimizer
             Node start = new Node() { layer = 0, gold = 0, prob = 1 };
             Node curr = start;
             double expected_gold = 0;
+            double artisan = 0;
             for (int i = 1; i <= data.pity[level]; i++)
             {
                 curr.success = new Node() { layer = i, gold = curr.gold + goldPerAttempt, prob = curr.prob * chance };
                 curr.fail = new Node() { layer = i , gold = curr.gold + goldPerAttempt, prob = curr.prob*(1-chance) };
-                chance += chanceBonus;
-                if (i == data.pity[level] - 1 || chance > 1)
-                    chance = 1;
+                
+                artisan += chance * 0.465;
                 expected_gold += curr.success.gold * curr.success.prob;
+                
+                if (chance == 1)
+                    break;
+                chance += chanceBonus;
+                if (artisan >= 1 || chance > 1)
+                    chance = 1;
+                
                 curr = curr.fail;
+                
             }
 
             return expected_gold;
